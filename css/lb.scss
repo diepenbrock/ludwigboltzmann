@@ -1,0 +1,116 @@
+
+
+
+// Scss Mixins
+
+@mixin background-default($image-url) {
+    background: {
+        image: $image-url;
+        repeat: no-repeat;
+        position: 50% 50%;
+    }
+    width: 100%;
+    height: auto;
+}
+
+
+/* body */
+
+
+
+*,body {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: 400 16px/1.8 -apple-system, BlinkMacSystemFont, Helvetica Neue, sans-serif;
+}
+
+.parallax {
+    perspective: 1px;
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    font-size: 200%;
+    text-align: center;
+
+    .parallax_layer {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        /* add padding to force scrollbars */
+        padding: 2vh 0 100vh 0;
+    }
+
+    .parallax_layer-base {
+        transform: translateZ(0);
+
+        .top-info {
+            height: 400px;
+            width: auto;
+            
+            .logo-box {
+                height: 100px;
+                width: 100px;
+                margin: {
+                    top: 0;
+                    left: 20px;
+                }
+
+                .logo {
+                    height: 100%;
+                    width: 100%;
+                    background: {
+                        image: url("../images/hcl-logo.png");
+                        position: 50% 50%;
+                        size: cover;
+                    }
+                }
+            }
+
+            p {
+                margin-top: 90px;
+                background: rgba(30,30,30,0.6);
+                color: #FFF;
+                font: {
+                    size: 1.4em;
+                }
+            }
+        }
+    }
+
+    .parallax_layer-back {
+        transform: translateZ(-1px) scale(2);
+        @include background-default(url("../images/health-image.jpg"));
+        background: {
+            color: #FAFAFA;
+            position: top center;
+        }
+    }
+}
+
+
+
+#main {
+    height: 1000px;
+    width: 100%;
+    border: 1px solid black;
+    background: #FFF;
+
+    div {
+        margin-top: 100px;
+    }
+
+    p {
+        
+    }
+
+
+
+    section {
+        background-color: #000;
+    }
+
+
+}
