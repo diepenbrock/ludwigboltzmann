@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css?family=Dancing+Script|Lato|Open+Sans|Permanent+Marker|Oswald");
 /* body */
 *, body {
   margin: 0;
@@ -5,60 +6,85 @@
   border: 0;
   font: 400 16px/1.8 -apple-system, BlinkMacSystemFont, Helvetica Neue, sans-serif; }
 
-.parallax {
-  perspective: 1px;
-  height: 100vh;
-  overflow-x: hidden;
-  overflow-y: auto;
-  font-size: 200%;
-  text-align: center; }
-  .parallax .parallax_layer {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    /* add padding to force scrollbars */
-    padding: 2vh 0 100vh 0; }
-  .parallax .parallax_layer-base {
-    transform: translateZ(0); }
-    .parallax .parallax_layer-base .top-info {
-      height: 400px;
-      width: auto; }
-      .parallax .parallax_layer-base .top-info .logo-box {
-        height: 100px;
-        width: 100px;
-        margin-top: 0;
-        margin-left: 20px; }
-        .parallax .parallax_layer-base .top-info .logo-box .logo {
-          height: 100%;
-          width: 100%;
-          background-image: url("../images/hcl-logo.png");
-          background-position: 50% 50%;
-          background-size: cover; }
-      .parallax .parallax_layer-base .top-info p {
-        margin-top: 90px;
-        background: rgba(30, 30, 30, 0.6);
-        color: #FFF;
-        font-size: 1.4em; }
-  .parallax .parallax_layer-back {
-    transform: translateZ(-1px) scale(2);
-    background-image: url("../images/health-image.jpg");
-    background-repeat: no-repeat;
-    background-position: 50% 50%;
-    width: 100%;
-    height: auto;
-    background-color: #FAFAFA;
-    background-position: top center; }
-
-#main {
-  height: 1000px;
+header {
+  height: 200px;
   width: 100%;
-  border: 1px solid black;
-  background: #FFF; }
-  #main div {
-    margin-top: 100px; }
-  #main section {
-    background-color: #000; }
+  margin-top: 100px;
+  border: 1px solid #000;
+  background-color: #FFF;
+  display: flex;
+  flex-wrap: wrap; }
+  header .title {
+    width: 100%;
+    text-align: center; }
+    @media only screen and (max-width: 55em) {
+      header .title {
+        width: 75px;
+        height: 100%;
+        background: #000;
+        color: #FFF; } }
+    header .title p {
+      font-family: "Lato", sans-serif;
+      font-size: 1.5em;
+      font-color: #000; }
+      @media only screen and (max-width: 55em) {
+        header .title p {
+          -webkit-transform: rotate(90deg);
+          -ms-transform: rotate(90deg);
+          transform: rotate(90deg);
+          margin-top: 50px;
+          font-size: 2em; } }
+  header .logo {
+    height: 100px;
+    width: 100px;
+    margin: 20px auto; }
+    @media only screen and (max-width: 55em) {
+      header .logo {
+        margin: auto; } }
+    header .logo img {
+      width: 100%;
+      height: 100%; }
+
+main {
+  background-color: #FFF;
+  height: 1000px; }
+  main .wrapper {
+    height: auto;
+    width: 80%;
+    margin: 100px auto; }
+    @media only screen and (max-width: 55em) {
+      main .wrapper {
+        width: 90%; } }
+    main .wrapper #description-box p {
+      display: flex; }
+      main .wrapper #description-box p:nth-of-type(even) {
+        font-weight: 300; }
+      main .wrapper #description-box p:nth-of-type(odd) {
+        font-weight: 500; }
+      main .wrapper #description-box p::before {
+        content: '';
+        display: inline-block;
+        height: 13px;
+        width: 3px;
+        background: red;
+        margin-right: 5px;
+        padding: 3px; }
+  main #start-test ol {
+    margin: 50px auto;
+    width: 90%; }
+    main #start-test ol li {
+      margin-top: 10px; }
+      main #start-test ol li a {
+        display: block; }
+
+footer {
+  height: 150px;
+  width: 100%;
+  text-align: center; }
+  footer div {
+    height: auto;
+    width: 90%;
+    margin: 0 auto;
+    text-align: center; }
 
 /*# sourceMappingURL=lb.css.map */

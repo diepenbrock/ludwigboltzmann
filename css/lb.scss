@@ -1,18 +1,51 @@
 
+// import fonts
+@import url('https://fonts.googleapis.com/css?family=Dancing+Script|Lato|Open+Sans|Permanent+Marker|Oswald');
+
+//font-family: 'Open Sans', sans-serif;
+//font-family: 'Permanent Marker', cursive;
+//font-family: 'Dancing Script', cursive;
+//font-family: 'Lato', sans-serif;
+//font-family: 'Oswald',sans-serif;
 
 
-// Scss Mixins
+// Variables
 
-@mixin background-default($image-url) {
-    background: {
-        image: $image-url;
-        repeat: no-repeat;
-        position: 50% 50%;
+// Colors
+$green: #5ABC6E;
+$light-green: #38C098;
+$pro-font: #3E444A;
+$dark-font: #4A4A4A;
+$light-bg-color: #FAFAFA;
+$cyan: cyan;
+$manilla: #FFFFAA;
+$marker-color: #130D6B;
+$primary-light-blue: #8DB9ED;
+$primary-line-color: #CCC;
+
+// Fonts
+$apple-font: -apple-system, BlinkMacSystemFont, Helvetica Neue, sans-serif;
+$open-sans: 'Open sans', sans-serif;
+$neue: 'Helvetica Neue', Arial, sans-serif;
+$bree: 'Bree Serif', Courier;
+$marker: 'Permanent Marker', cursive;
+$lato: 'Lato',sans-serif;
+$dancing: 'Dancing Script', cursive;
+$oswald: 'Oswald',sans-serif;
+
+
+// Media Query for Responsive Display
+@mixin media($width) {
+    @media only screen and (max-width: $width) {
+        @content;
     }
-    width: 100%;
-    height: auto;
 }
 
+// links
+@mixin href($color) {
+    text-decoration: none;
+    color: $color;
+}
 
 /* body */
 
@@ -25,92 +58,139 @@
     font: 400 16px/1.8 -apple-system, BlinkMacSystemFont, Helvetica Neue, sans-serif;
 }
 
-.parallax {
-    perspective: 1px;
-    height: 100vh;
-    overflow-x: hidden;
-    overflow-y: auto;
-    font-size: 200%;
-    text-align: center;
 
-    .parallax_layer {
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        /* add padding to force scrollbars */
-        padding: 2vh 0 100vh 0;
-    }
+header {
+    height: 200px;
+    width: 100%;
+    margin-top: 100px;
+    border: 1px solid #000;
+    background-color: #FFF;
+    display: flex;
+    flex-wrap: wrap;
 
-    .parallax_layer-base {
-        transform: translateZ(0);
+    .title {
+        width: 100%;
+        text-align: center;
 
-        .top-info {
-            height: 400px;
-            width: auto;
-            
-            .logo-box {
-                height: 100px;
-                width: 100px;
-                margin: {
-                    top: 0;
-                    left: 20px;
-                }
+        @include media(55em) {
+            width: 75px;
+            height: 100%;
+            background: #000;
+            color: #FFF;
 
-                .logo {
-                    height: 100%;
-                    width: 100%;
-                    background: {
-                        image: url("../images/hcl-logo.png");
-                        position: 50% 50%;
-                        size: cover;
-                    }
+        }
+        p {
+            font: {
+                family: $lato;
+                size: 1.5em;
+                color: #000;
+            }
+            @include media(55em) {
+                -webkit-transform: rotate(90deg);
+                -ms-transform: rotate(90deg);
+                transform: rotate(90deg);
+                margin-top: 50px;
+                font: {
+                    size: 2em;
                 }
             }
+        }
+    }
+    .logo {
+        height: 100px;
+        width: 100px;
+        margin: 20px auto;
+       
+        @include media(55em) {
+            margin: auto;
+        }
+        
+        img {
+            width: 100%;
+            height: 100%;
+        }
+  }
+
+} // end header
+
+
+
+main {
+    background-color: #FFF;
+    height: 1000px;
+
+    .wrapper {
+        height: auto;
+        width: 80%;
+        margin: 100px auto;
+        
+        @include media(55em) {
+            width: 90%
+        }
+        #description-box {
 
             p {
-                margin-top: 90px;
-                background: rgba(30,30,30,0.6);
-                color: #FFF;
-                font: {
-                    size: 1.4em;
+                display: flex;
+
+                &:nth-of-type(even) {
+                    font-weight: 300;
+                }
+                &:nth-of-type(odd) {
+                    font-weight: 500;
+                }
+                &::before {
+                    content: '';
+                    display: inline-block;
+                    height: 13px;
+                    width: 3px;
+                    background: red;
+                    margin-right: 5px;
+                    padding: 3px;
+                }
+            }    
+        }
+    }// end description
+
+
+
+
+    #start-test {
+        ol {
+            margin: 50px auto;
+            width: 90%;
+            li {
+                margin-top: 10px;
+                
+
+
+                a {
+                    display: block;
+            
                 }
             }
         }
-    }
-
-    .parallax_layer-back {
-        transform: translateZ(-1px) scale(2);
-        @include background-default(url("../images/health-image.jpg"));
-        background: {
-            color: #FAFAFA;
-            position: top center;
-        }
-    }
-}
+    } // end start-test
 
 
 
-#main {
-    height: 1000px;
+
+
+}// end main
+
+
+
+footer {
+    height: 150px;
     width: 100%;
-    border: 1px solid black;
-    background: #FFF;
+    text-align: center;
 
     div {
-        margin-top: 100px;
+        height: auto;
+        width: 90%;
+        margin: 0 auto;
+        text-align: center;
     }
-
-    p {
-        
-    }
-
-
-
-    section {
-        background-color: #000;
-    }
-
-
 }
+
+
+
